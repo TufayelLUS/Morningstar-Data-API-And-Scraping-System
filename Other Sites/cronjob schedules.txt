@@ -1,0 +1,88 @@
+# daily crons
+0 23 * * * @reboot sync; echo 3 > /proc/sys/vm/drop_caches && reboot
+0 0 * * * cd /var/www/vhosts/default/crons/daily/etf && python3 etf_screener.py
+0 0 * * * cd /var/www/vhosts/default/crons/daily/equity && python3 equity_screener.py
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py us
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py gbr
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py gbrofs
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py aut
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py bel
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py dnk
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py fin
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py fra
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py deu
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py irl
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py ita
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py nld
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py nor
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py prt
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py esp
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py swe
+0 0 * * * cd /var/www/vhosts/default/crons/daily/world && python3 world_screener.py che
+0 0 * * * cd /var/www/vhosts/default/crons/daily/pension_life && python3 pension_life_screener.py
+0 0 * * * cd /var/www/vhosts/default/crons/daily/invest && python3 invest_screener.py
+
+30 1 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py gbr 30
+30 1 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py gbrofs 30
+30 3 * * 1-6 cd /var/www/vhosts/default/crons/daily/etf && python3 etf_chart_daily.py
+30 3 * * 1-6 cd /var/www/vhosts/default/crons/daily/equity && python3 equity_chart_daily.py
+30 3 * * 1-6 cd /var/www/vhosts/default/crons/daily/pension_life && python3 pension_life_chart_daily.py
+30 3 * * 1-6 cd /var/www/vhosts/default/crons/daily/invest && python3 invest_chart_daily.py
+
+# weekly scripts
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/world && python3 world_mgt.py gbr 6
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/world && python3 world_overview.py gbr 6
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/world && python3 world_perf.py gbr 6
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/world && python3 world_portfolio.py gbr 6
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/world && python3 world_rr.py gbr 6
+
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/etf && python3 etf_mgt.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/etf && python3 etf_overview.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/etf && python3 etf_perf.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/etf && python3 etf_portfolio.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/etf && python3 etf_rr.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/etf && python3 etf_docs.py
+
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/invest && python3 invest_mgt.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/invest && python3 invest_overview.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/invest && python3 invest_perf.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/invest && python3 invest_portfolio.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/invest && python3 invest_rr.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/invest && python3 invest_docs.py
+
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/equity && python3 equity_overview.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/equity && python3 equity_docs.py
+
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_mgt.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_overview.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_perf.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_portfolio.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_rr.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_docs.py
+
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_mgt.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_overview.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_perf.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_portfolio.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_rr.py
+0 5 * * 1-6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_docs.py
+
+# Sunday special
+30 0 * * 7 cd /var/www/vhosts/default/crons && python3 queue_run.py
+
+# other world funds
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py us 5
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py aut 11
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py bel 6
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py dnk 6
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py fin 8
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py fra 13
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py deu 15
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py irl 11
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py ita 6
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py nld 10
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py nor 7
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py prt 5
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py esp 11
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py swe 9
+0 13 * * 1-6 cd /var/www/vhosts/default/crons/daily/world && python3 world_chart_daily.py che 6

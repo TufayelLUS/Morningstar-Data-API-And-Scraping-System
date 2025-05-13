@@ -1,0 +1,39 @@
+# daily tasks
+0 23 * * * @reboot sync; echo 3 > /proc/sys/vm/drop_caches && reboot
+0 0 * * * cd /var/www/vhosts/default/crons/daily && python3 funds_screener.py
+0 0 * * * cd /var/www/vhosts/default/crons/daily/pension_life && python3 pension_life_screener.py
+30 0 * * * cd /var/www/vhosts/default/crons/daily && python3 timeseries_updater.py
+30 1 * * 1-6 cd /var/www/vhosts/default/crons/daily && python3 funds_chart_daily.py
+30 1 * * 1-6 cd /var/www/vhosts/default/crons/daily/pension_life && python3 pension_life_chart_daily.py
+
+# weekly tasks
+# Monday
+0 14 * * 1 cd /var/www/vhosts/default/crons/weekly && python3 funds_overview.py
+0 14 * * 1 cd /var/www/vhosts/default/crons/weekly && python3 etf_overview.py
+0 14 * * 1 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_overview.py
+0 14 * * 1 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_overview.py
+# Tuesday
+0 14 * * 2 cd /var/www/vhosts/default/crons/weekly && python3 funds_rr.py
+0 14 * * 2 cd /var/www/vhosts/default/crons/weekly && python3 etf_rr.py
+0 14 * * 2 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_rr.py
+0 14 * * 2 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_rr.py
+# Wednesday
+0 14 * * 3 cd /var/www/vhosts/default/crons/weekly && python3 funds_mgt.py
+0 14 * * 3 cd /var/www/vhosts/default/crons/weekly && python3 etf_mgt.py
+0 14 * * 3 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_mgt.py
+0 14 * * 3 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_mgt.py
+# Thursday
+0 14 * * 4 cd /var/www/vhosts/default/crons/weekly && python3 funds_docs.py
+0 14 * * 4 cd /var/www/vhosts/default/crons/weekly && python3 etf_docs.py
+0 14 * * 4 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_docs.py
+0 14 * * 4 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_docs.py
+# Friday
+0 14 * * 5 cd /var/www/vhosts/default/crons/weekly && python3 funds_portfolio.py
+0 14 * * 5 cd /var/www/vhosts/default/crons/weekly && python3 etf_portfolio.py
+0 14 * * 5 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_portfolio.py
+0 14 * * 5 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_portfolio.py
+# Saturday
+0 10 * * 6 cd /var/www/vhosts/default/crons/weekly && python3 funds_perf.py
+0 10 * * 6 cd /var/www/vhosts/default/crons/weekly && python3 etf_perf.py
+0 10 * * 6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 pension_perf.py
+0 10 * * 6 cd /var/www/vhosts/default/crons/weekly/pension_life && python3 life_perf.py
